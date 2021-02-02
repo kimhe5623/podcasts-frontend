@@ -18,6 +18,12 @@ export interface CreateAccountInput {
   role?: UserRole | null;
 }
 
+export interface CreateEpisodeInput {
+  title: string;
+  category: string;
+  podcastId: number;
+}
+
 export interface CreatePodcastInput {
   title: string;
   coverImage: string;
@@ -27,6 +33,10 @@ export interface CreatePodcastInput {
 export interface LoginInput {
   email: string;
   password: string;
+}
+
+export interface PodcastSearchInput {
+  id: number;
 }
 
 //==============================================================

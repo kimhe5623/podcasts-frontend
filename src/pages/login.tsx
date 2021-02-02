@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { FormError } from "../components/form-error";
 import { Button } from "../components/button";
 import { loginMutation, loginMutationVariables } from "../__generated__/loginMutation"
-import ouberLogo from "../images/podcasts-logo-main.png";
+import podcastLogo from "../images/podcasts-logo-main.png";
 import { Link } from "react-router-dom";
 import { Helmet} from 'react-helmet';
 import { authToken, isLoggedInVar } from "../apollo";
@@ -71,7 +71,7 @@ export const Login = () => {
                 <title>Login | Podcasts</title>
             </Helmet>
             <div className="w-full max-w-screen-sm flex flex-col p-16 items-center bg-white shadow-2xl rounded-lg">
-                <img src={ouberLogo} className=" w-48 mb-5" alt="" />
+                <img src={podcastLogo} className=" w-48 mb-5" alt="" />
                 <h4 className="w-full text-left text-2xl font-semibold">Welcome back</h4>
                 <form
                     onSubmit={handleSubmit(onSubmit)}

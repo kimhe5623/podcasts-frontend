@@ -15,7 +15,7 @@ const ListenerRoutes = [
   <Route path="/" key={1} exact>
     <Podcasts />
   </Route>,
-  <Route path="/podcast" key={2} >
+  <Route path="/podcast/:id" key={2} >
     <Podcast />
   </Route>,
   <Route path="/episodes" key={3} >
@@ -32,7 +32,7 @@ const HostRoutes = [
   <Route path="/create-new-podcast" key={2} exact>
     <CreatePodcast />
   </Route>,
-  <Route path="/create-new-episode" key={3} exact>
+  <Route path="/create-new-episode/:podcastId" key={3} exact>
     <CreateEpisode />
   </Route>,
 ];
