@@ -76,7 +76,7 @@ export const CreateAccount = () => {
             <Helmet>
                 <title>Create Account | Ouber Eats</title>
             </Helmet>
-            <div className="w-full max-w-screen-sm flex flex-col p-16 items-center bg-white shadow-2xl rounded-lg">
+            <div className="w-full max-w-screen-sm flex flex-col lg:px-16 px-5 py-16 items-center bg-white shadow-2xl rounded-lg">
                 <img src={podcastLogo} className="w-48 mb-10" alt="" />
                 <h4 className="w-full text-left text-2xl font-semibold">Let's get started</h4>
                 <form

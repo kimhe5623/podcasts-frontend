@@ -7,7 +7,8 @@ export const isLoggedInVar = makeVar(Boolean(token));
 export const authToken = makeVar(token);
 
 const httpLink = createHttpLink({
-  uri: "https://podcast-hyo.herokuapp.com/graphql"
+  //uri: "https://podcast-hyo.herokuapp.com/graphql"
+  uri: "http://localhost:5000/graphql"
 });
 const authLink = setContext((_, { headers }) => {
   return {

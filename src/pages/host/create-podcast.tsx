@@ -21,7 +21,7 @@ const CREATE_PODCAST_MUTATION = gql`
 interface ICreatePodcastForm {
   title: string;
   coverImage: string;
-  category: string;
+  categoryName: string;
 }
 
 export const CreatePodcast = () => {
@@ -44,7 +44,7 @@ export const CreatePodcast = () => {
       alert("New Podcast was successfully created!");
       setValue("title", "");
       setValue("coverImage", "");
-      setValue("category", "");
+      setValue("categoryName", "");
     }
   };
 
@@ -57,13 +57,13 @@ export const CreatePodcast = () => {
 
   const onSubmit = () => {
     if (!loading) {
-      const { title, coverImage, category } = getValues();
+      const { title, coverImage, categoryName } = getValues();
       createPodcastMutation({
         variables: {
           input: {
             title,
             coverImage,
-            category
+            categoryName
           }
         }
       });
@@ -74,7 +74,7 @@ export const CreatePodcast = () => {
       <Helmet>
         <title>Create New Podcast | Podcasts</title>
       </Helmet>
-      <div className="w-full max-w-screen-sm flex flex-col p-16 items-center bg-white shadow-2xl rounded-lg">
+      <div className="w-full max-w-screen-sm flex flex-col lg:px-16 px-5 py-16 items-center bg-white shadow-2xl rounded-lg">
         <div className="text-3xl font-bold text-gray-800 mb-5">New Podcast</div>
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -106,12 +106,12 @@ export const CreatePodcast = () => {
 
           <input
             ref={register({ required: "Category is required" })}
-            name="category"
+            name="categoryName"
             type="text"
             placeholder="Category"
             className="input" />
-          {errors.category?.message && (
-            <FormError errorMessage={errors.category?.message} />
+          {errors.categoryName?.message && (
+            <FormError errorMessage={errors.categoryName?.message} />
           )}
 
           <Button canClick={formState.isValid} loading={loading} actionText="Create Podcast"></Button>

@@ -5,8 +5,24 @@ export const PODCAST_FRAGMENT = gql`
     id
     title
     coverImage
-    category
+    category {
+      name
+      slug
+    }
     rating
+    host {
+      email
+    }
+    subscribers {
+      email
+    }
+    reviews {
+      title
+      text
+      creator {
+        email
+      }
+    }
   }
 `;
 
@@ -14,18 +30,25 @@ export const PODCAST_WHOLE_FRAGMENT = gql`
   fragment PodcastWholeParts on Podcast {
     id
     title
-    category
     coverImage
-    creator {
+    category {
+      name
+      slug
+    }
+    rating
+    host {
       email
     }
     episodes {
       id
       title
-      category
+      summary
+      filePath
+    }
+    subscribers {
+      email
     }
     reviews {
-      id
       title
       text
       creator {

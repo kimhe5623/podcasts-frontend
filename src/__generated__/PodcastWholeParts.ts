@@ -7,7 +7,13 @@
 // GraphQL fragment: PodcastWholeParts
 // ====================================================
 
-export interface PodcastWholeParts_creator {
+export interface PodcastWholeParts_category {
+  __typename: "Category";
+  name: string;
+  slug: string;
+}
+
+export interface PodcastWholeParts_host {
   __typename: "User";
   email: string;
 }
@@ -16,7 +22,13 @@ export interface PodcastWholeParts_episodes {
   __typename: "Episode";
   id: number;
   title: string;
-  category: string;
+  summary: string;
+  filePath: string;
+}
+
+export interface PodcastWholeParts_subscribers {
+  __typename: "User";
+  email: string;
 }
 
 export interface PodcastWholeParts_reviews_creator {
@@ -26,7 +38,6 @@ export interface PodcastWholeParts_reviews_creator {
 
 export interface PodcastWholeParts_reviews {
   __typename: "Review";
-  id: number;
   title: string;
   text: string;
   creator: PodcastWholeParts_reviews_creator;
@@ -36,9 +47,11 @@ export interface PodcastWholeParts {
   __typename: "Podcast";
   id: number;
   title: string;
-  category: string;
   coverImage: string;
-  creator: PodcastWholeParts_creator;
+  category: PodcastWholeParts_category | null;
+  rating: number;
+  host: PodcastWholeParts_host;
   episodes: PodcastWholeParts_episodes[];
+  subscribers: PodcastWholeParts_subscribers[];
   reviews: PodcastWholeParts_reviews[];
 }

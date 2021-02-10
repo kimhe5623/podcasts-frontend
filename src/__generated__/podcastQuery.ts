@@ -3,13 +3,19 @@
 // @generated
 // This file was automatically generated and should not be edited.
 
-import { PodcastSearchInput } from "./globalTypes";
+import { GetPodcastInput } from "./globalTypes";
 
 // ====================================================
 // GraphQL query operation: podcastQuery
 // ====================================================
 
-export interface podcastQuery_getPodcast_podcast_creator {
+export interface podcastQuery_getPodcast_podcast_category {
+  __typename: "Category";
+  name: string;
+  slug: string;
+}
+
+export interface podcastQuery_getPodcast_podcast_host {
   __typename: "User";
   email: string;
 }
@@ -18,7 +24,13 @@ export interface podcastQuery_getPodcast_podcast_episodes {
   __typename: "Episode";
   id: number;
   title: string;
-  category: string;
+  summary: string;
+  filePath: string;
+}
+
+export interface podcastQuery_getPodcast_podcast_subscribers {
+  __typename: "User";
+  email: string;
 }
 
 export interface podcastQuery_getPodcast_podcast_reviews_creator {
@@ -28,7 +40,6 @@ export interface podcastQuery_getPodcast_podcast_reviews_creator {
 
 export interface podcastQuery_getPodcast_podcast_reviews {
   __typename: "Review";
-  id: number;
   title: string;
   text: string;
   creator: podcastQuery_getPodcast_podcast_reviews_creator;
@@ -38,15 +49,17 @@ export interface podcastQuery_getPodcast_podcast {
   __typename: "Podcast";
   id: number;
   title: string;
-  category: string;
   coverImage: string;
-  creator: podcastQuery_getPodcast_podcast_creator;
+  category: podcastQuery_getPodcast_podcast_category | null;
+  rating: number;
+  host: podcastQuery_getPodcast_podcast_host;
   episodes: podcastQuery_getPodcast_podcast_episodes[];
+  subscribers: podcastQuery_getPodcast_podcast_subscribers[];
   reviews: podcastQuery_getPodcast_podcast_reviews[];
 }
 
 export interface podcastQuery_getPodcast {
-  __typename: "PodcastOutput";
+  __typename: "GetPodcastOutput";
   ok: boolean;
   error: string | null;
   podcast: podcastQuery_getPodcast_podcast | null;
@@ -57,5 +70,5 @@ export interface podcastQuery {
 }
 
 export interface podcastQueryVariables {
-  input: PodcastSearchInput;
+  input: GetPodcastInput;
 }

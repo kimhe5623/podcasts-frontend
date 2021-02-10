@@ -20,23 +20,24 @@ export interface CreateAccountInput {
 
 export interface CreateEpisodeInput {
   title: string;
-  category: string;
+  filePath: string;
+  summary: string;
   podcastId: number;
 }
 
 export interface CreatePodcastInput {
   title: string;
   coverImage: string;
-  category: string;
+  categoryName: string;
+}
+
+export interface GetPodcastInput {
+  id: number;
 }
 
 export interface LoginInput {
   email: string;
   password: string;
-}
-
-export interface PodcastSearchInput {
-  id: number;
 }
 
 //==============================================================

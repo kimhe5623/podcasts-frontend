@@ -11,28 +11,27 @@ import { Podcast } from '../pages/listener/podcast';
 import { Episode } from '../pages/listener/episode';
 import { Header } from '../components/header';
 
-const ListenerRoutes = [
-  <Route path="/" key={1} exact>
+const CommonRoutes = [
+  <Route path="/" key={101} exact>
     <Podcasts />
   </Route>,
-  <Route path="/podcast/:id" key={2} >
+  <Route path="/podcast/:id" key={102} >
     <Podcast />
   </Route>,
-  <Route path="/episodes" key={3} >
-    <Episodes />
-  </Route>,
-  <Route path="/episode" key={4} >
+  <Route path="/episode/:podcastId" key={104} >
     <Episode />
   </Route>,
+]
+
+const ListenerRoutes = [
+  ...CommonRoutes
 ];
 const HostRoutes = [
-  <Route path="/" key={1} exact>
-    <Podcasts />
-  </Route>,
-  <Route path="/create-new-podcast" key={2} exact>
+  ...CommonRoutes,
+  <Route path="/create-new-podcast" key={1} exact>
     <CreatePodcast />
   </Route>,
-  <Route path="/create-new-episode/:podcastId" key={3} exact>
+  <Route path="/create-new-episode/:podcastId" key={2} exact>
     <CreateEpisode />
   </Route>,
 ];

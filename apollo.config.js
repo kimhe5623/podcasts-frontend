@@ -4,7 +4,8 @@ module.exports = {
     tagName: "gql",
     service: {
       name: "",
-      url: "https://podcast-hyo.herokuapp.com/graphql"
+      //url: "https://podcast-hyo.herokuapp.com/graphql"
+      url: "http://localhost:5000/graphql"
     },
   }
 };
