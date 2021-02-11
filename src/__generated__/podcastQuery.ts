@@ -17,6 +17,7 @@ export interface podcastQuery_getPodcast_podcast_category {
 
 export interface podcastQuery_getPodcast_podcast_host {
   __typename: "User";
+  id: number;
   email: string;
 }
 

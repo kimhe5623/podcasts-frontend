@@ -8,7 +8,7 @@ import podcastLogo from "../images/podcasts-logo-main.png";
 import { Link } from "react-router-dom";
 import { Helmet} from 'react-helmet';
 import { authToken, isLoggedInVar } from "../apollo";
-import { EMAIL_REGEX, LOCALSTORAGE_TOKEN } from "../constants";
+import { EMAIL_REGEX, LOCALSTORAGE_TOKEN, TITLE } from "../constants";
 
 const LOGIN_MUTATION = gql`
     mutation loginMutation($input: LoginInput!) {
@@ -68,7 +68,7 @@ export const Login = () => {
     return (
         <div className="h-screen flex items-center flex-col p-10 lg:pt-32 bg-gradient-to-tl from-purple-500 via-purple-600 to-violet-800">
             <Helmet>
-                <title>Login | Podcasts</title>
+                <title>Login | {`${TITLE}`}</title>
             </Helmet>
             <div className="w-full max-w-screen-sm flex flex-col lg:px-16 px-5 py-16 items-center bg-white shadow-2xl rounded-lg">
                 <img src={podcastLogo} className=" w-48 mb-5" alt="" />

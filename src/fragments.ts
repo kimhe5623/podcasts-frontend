@@ -11,6 +11,7 @@ export const PODCAST_FRAGMENT = gql`
     }
     rating
     host {
+      id
       email
     }
     subscribers {
@@ -37,6 +38,7 @@ export const PODCAST_WHOLE_FRAGMENT = gql`
     }
     rating
     host {
+      id
       email
     }
     episodes {
@@ -56,4 +58,36 @@ export const PODCAST_WHOLE_FRAGMENT = gql`
       }
     }
   }
+`;
+
+export const EPISODE_FRAGMENT = gql`
+  fragment EpisodeParts on Episode {
+    id
+    title
+    filePath
+    updatedAt
+    summary
+    players {
+      id
+      email
+    }
+    podcast {
+      id
+      title
+      coverImage
+      category {
+        id
+        name
+        slug
+      }
+      host {
+        id
+      }
+      subscribers {
+        id
+        email
+      }
+    }
+  }
+
 `;

@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { Button } from '../../components/button';
 import { FormError } from '../../components/form-error';
+import { TITLE } from '../../constants';
 import { createPodcastMutation, createPodcastMutationVariables } from '../../__generated__/createPodcastMutation';
 
 const CREATE_PODCAST_MUTATION = gql`
@@ -42,9 +43,9 @@ export const CreatePodcast = () => {
     } = data;
     if (ok) {
       alert("New Podcast was successfully created!");
-      setValue("title", "");
-      setValue("coverImage", "");
-      setValue("categoryName", "");
+      setValue("title", null);
+      setValue("coverImage", null);
+      setValue("categoryName", null);
     }
   };
 
@@ -72,7 +73,7 @@ export const CreatePodcast = () => {
   return (
     <div className="h-screen flex items-center flex-col p-10 lg:pt-32 bg-violet-100">
       <Helmet>
-        <title>Create New Podcast | Podcasts</title>
+        <title>Create New Podcast | {`${TITLE}`}</title>
       </Helmet>
       <div className="w-full max-w-screen-sm flex flex-col lg:px-16 px-5 py-16 items-center bg-white shadow-2xl rounded-lg">
         <div className="text-3xl font-bold text-gray-800 mb-5">New Podcast</div>

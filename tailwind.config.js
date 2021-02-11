@@ -9,6 +9,10 @@ module.exports = {
         violet: colors.violet,
         dark: '#000000b0',
       },
+      inset: {
+        "2/7": "26.333333%",
+        "9/10": "92%"
+      }
     },
   },
   variants: {

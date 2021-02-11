@@ -7,6 +7,7 @@ import { FormError } from '../../components/form-error';
 import { createEpisodeMutation, createEpisodeMutationVariables } from '../../__generated__/createEpisodeMutation';
 import { Link, useParams } from 'react-router-dom';
 import { GetPodcastTitle } from '../../hooks/getPodcastTitle';
+import { TITLE } from '../../constants';
 
 const CREATE_EPISODE_MUTATION = gql`
   mutation createEpisodeMutation($input: CreateEpisodeInput!) {
@@ -22,6 +23,7 @@ const CREATE_EPISODE_MUTATION = gql`
 
 interface ICreateEpisodeForm {
   title: string;
+  filePath: string;
   summary: string;
 }
 
@@ -50,8 +52,9 @@ export const CreateEpisode = () => {
     } = data;
     if (ok) {
       alert("New Episode was successfully created!");
-      setValue("title", "");
-      setValue("summary", "");
+      setValue("title", null);
+      setValue("summary", null);
+      setValue("filePath", null);
     }
   };
 
@@ -64,14 +67,14 @@ export const CreateEpisode = () => {
 
   const onSubmit = () => {
     if (!loading) {
-      const { title, summary } = getValues();
+      const { title, summary, filePath } = getValues();
       createEpisodeMutation({
         variables: {
           input: {
             podcastId: +params.podcastId,
             title,
-            summary: summary,
-            filePath: ""
+            summary,
+            filePath
           }
         }
       });
@@ -81,7 +84,7 @@ export const CreateEpisode = () => {
   return (
     <div className="h-screen flex items-center flex-col p-10 lg:pt-32 bg-violet-100">
       <Helmet>
-        <title>Create New Episode | Podcasts</title>
+        <title>Create New Episode | {`${TITLE}`}</title>
       </Helmet>
       <div className="w-full max-w-screen-sm flex flex-col lg:px-16 px-5 py-16 items-center bg-white shadow-2xl rounded-lg">
         <div className="text-3xl font-bold text-gray-800 mb-5">New Episode</div>
@@ -108,6 +111,18 @@ export const CreateEpisode = () => {
             className="input" />
           {errors.title?.message && (
             <FormError errorMessage={errors.title?.message} />
+          )}
+
+          <input
+            ref={register({
+              required: "File is required",
+            })}
+            name="filePath"
+            type="text"
+            placeholder="File"
+            className="input" />
+          {errors.filePath?.message && (
+            <FormError errorMessage={errors.filePath?.message} />
           )}
 
           <textarea

@@ -15,6 +15,7 @@ export interface PodcastParts_category {
 
 export interface PodcastParts_host {
   __typename: "User";
+  id: number;
   email: string;
 }
 

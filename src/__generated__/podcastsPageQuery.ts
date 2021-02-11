@@ -15,6 +15,7 @@ export interface podcastsPageQuery_getAllPodcasts_podcasts_category {
 
 export interface podcastsPageQuery_getAllPodcasts_podcasts_host {
   __typename: "User";
+  id: number;
   email: string;
 }
 
