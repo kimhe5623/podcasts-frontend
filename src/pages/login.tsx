@@ -108,7 +108,7 @@ export const Login = () => {
                     {loginMutationResult?.login.error && <FormError errorMessage={loginMutationResult.login.error} />}
                 </form>
                 <div>
-                    New to Ouber? <Link to="/create-account" className="text-lime-600 hover:underline">Create an Account</Link>
+                    New to Podcasts? <Link to="/create-account" className="text-lime-600 hover:underline">Create an Account</Link>
                 </div>
             </div>
         </div>
