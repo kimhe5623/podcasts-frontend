@@ -28,6 +28,7 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^6.15.1",
     "react-modal": "^3.12.1",
+    "react-rating": "^2.0.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "rimraf": "^3.0.2",
@@ -40,6 +41,7 @@
     "tailwind:build": "tailwind build ./src/styles/tailwind.css -o ./src/styles/styles.css",
     "start": "npm run apollo:codegen && npm run tailwind:build & react-scripts start",
     "build": "react-scripts build",
+    "prebuild": "npm run tailwind:build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

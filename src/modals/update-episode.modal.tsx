@@ -166,16 +166,17 @@ export const UpdateEpisode: React.FC<IUpdateEpisodeProps> = ({ episodeId, title,
 
             <div className="flex flex-col">
               {
-                getValues("Summary") !== "" && (
+                getValues("summary") !== "" && (
                   <label className="text-sm mb-1" htmlFor="summary">Summary</label>
                 )
               }
-              <input
+              <textarea
                 ref={register({
                   required: "Summary is required"
                 })}
                 name="summary"
-                type="text"
+                rows={5}
+                cols={50}
                 placeholder="Summary"
                 className="input"
                 defaultValue={summary}

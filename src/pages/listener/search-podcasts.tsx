@@ -141,7 +141,7 @@ export const SearchPodcasts = () => {
     const params = location.search.split("?term=")[1].split("&cat=");
     const categorySlug = params.length === 2 ? params[1] : "";
     loadPage(params[0], page, categorySlug);
-  }, [history, loading, loadPage]);
+  }, [history, loading]);
 
   return (
     <div>

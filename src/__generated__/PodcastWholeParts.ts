@@ -29,6 +29,7 @@ export interface PodcastWholeParts_episodes {
 
 export interface PodcastWholeParts_subscribers {
   __typename: "User";
+  id: number;
   email: string;
 }
 
@@ -40,7 +41,9 @@ export interface PodcastWholeParts_reviews_creator {
 export interface PodcastWholeParts_reviews {
   __typename: "Review";
   title: string;
+  updatedAt: any;
   text: string;
+  rating: number;
   creator: PodcastWholeParts_reviews_creator;
 }
 

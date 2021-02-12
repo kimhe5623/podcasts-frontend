@@ -31,6 +31,7 @@ export interface podcastQuery_getPodcast_podcast_episodes {
 
 export interface podcastQuery_getPodcast_podcast_subscribers {
   __typename: "User";
+  id: number;
   email: string;
 }
 
@@ -42,7 +43,9 @@ export interface podcastQuery_getPodcast_podcast_reviews_creator {
 export interface podcastQuery_getPodcast_podcast_reviews {
   __typename: "Review";
   title: string;
+  updatedAt: any;
   text: string;
+  rating: number;
   creator: podcastQuery_getPodcast_podcast_reviews_creator;
 }
 

@@ -40,3 +40,9 @@ export const transformDate = (at: Date) => {
     return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`
   }
 }
+
+export const transformEmail = (email: string) => {
+  const splitedEmail = email.split("@");
+  const username = splitedEmail[0].replace(splitedEmail[0].substr(1, splitedEmail[0].length-2), "*".repeat(splitedEmail[0].length-2));
+  return `${username}@${splitedEmail[1]}`;
+}

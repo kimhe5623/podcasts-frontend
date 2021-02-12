@@ -48,11 +48,14 @@ export const PODCAST_WHOLE_FRAGMENT = gql`
       filePath
     }
     subscribers {
+      id
       email
     }
     reviews {
       title
+      updatedAt
       text
+      rating
       creator {
         email
       }

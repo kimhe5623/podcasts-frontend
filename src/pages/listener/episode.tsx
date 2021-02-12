@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import { TITLE } from '../../constants';
-import { transformDate } from '../../hooks/transformDate';
+import { transformDate } from '../../hooks/transform';
 import { gql, useMutation, useQuery } from '@apollo/client';
 import { markEpisodeAsPlayedMutation, markEpisodeAsPlayedMutationVariables } from "../../__generated__/markEpisodeAsPlayedMutation";
 import { useMe } from '../../hooks/useMe';
@@ -60,7 +60,7 @@ export const Episode = () => {
     alreadyPlayed = alreadyPlayed || player.id === meData.data?.me.id;
   });
 
-  const [markEpisodeAsPlayedMutation, { data: markEpisodeAsPlayedMutationResult, loading }] = useMutation<
+  const [markEpisodeAsPlayedMutation, { loading }] = useMutation<
     markEpisodeAsPlayedMutation,
     markEpisodeAsPlayedMutationVariables
   >(MARK_EPISODE_AS_PLAYED);
@@ -76,6 +76,8 @@ export const Episode = () => {
       });
       setClickedPlayBtn(true);
       setViews(views + 1);
+    } else {
+      alert("Already played it!!")
     }
   }
   return (

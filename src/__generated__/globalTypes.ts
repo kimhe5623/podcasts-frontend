@@ -36,6 +36,13 @@ export interface CreatePodcastInput {
   categoryName: string;
 }
 
+export interface CreateReviewInput {
+  title: string;
+  text: string;
+  rating?: number | null;
+  podcastId: number;
+}
+
 export interface DeleteEpisodeInput {
   episodeId: number;
 }
@@ -73,6 +80,10 @@ export interface SearchPodcastsInput {
   categorySlug?: string | null;
 }
 
+export interface ToggleSubscribeInput {
+  podcastId: number;
+}
+
 export interface UpdateEpisodeInput {
   episodeId: number;
   title?: string | null;
@@ -88,7 +99,6 @@ export interface UpdatePodcastInput {
 export interface UpdatePodcastPayload {
   title?: string | null;
   coverImage?: string | null;
-  rating?: number | null;
   categoryName?: string | null;
 }
 
